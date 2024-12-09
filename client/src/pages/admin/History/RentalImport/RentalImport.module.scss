@@ -1,0 +1,259 @@
+.wrapper {
+    background-color: #F4F7FE;
+    min-height: 100vh;
+    width: 100%;
+    font-size: 14px;
+}
+
+
+.container {
+    padding: 30px;
+    width: 100%;
+}
+
+.content-total {
+    min-height: max-content;
+    width: 100%;
+    border-radius:4px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.tabpanel {
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+    font-weight: 500;
+}
+
+.tabpanel-item {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 35px 5px 35px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(154, 148, 148, 0.2);
+    }
+    &.active {
+        border-bottom: 3px solid #00b63e;
+        background-color: rgba(154, 148, 148, 0.2);
+    }
+    transition: background-color .2s linear;
+}
+
+.content {
+    padding: 32px;
+}
+
+.wrapper-body {
+    font-size: 13px;
+    width: 100%;
+}
+
+.toolbox {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+}
+.search-box {
+    padding: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.search-input {
+
+    padding: 0px 10px;
+    width: 250px;
+    outline: none;
+    border: none;
+}
+
+.input-focus {
+    border: 1px solid #b8b7b7;
+    box-shadow: 0 3px 10px rgb(0,  0, 0,0.25);
+}
+
+.icon {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.function-box {
+    display: flex;
+    align-items: center;
+    
+}
+
+.product-category {
+    position: relative;
+
+}
+
+
+
+.product-type {
+    position: relative;
+}
+
+// .product-type-list, .product-category-list {
+//     display: none;
+//     position: absolute;
+//     z-index: 100;
+//     width: 180px;
+//     top: 27px;
+//     left: 11px;
+//     list-style: none;
+//     padding: 10px 0;
+//     background-color: red;
+//     border-radius: 5px;
+//     box-shadow: 0 5px 25px rgb(0,  0, 0,0.25);
+//     background-color: #fff;
+
+//     li {
+//         font-size: 14px;
+
+//         padding: 8px 24px;
+//         cursor: pointer;
+    
+//         &:hover {
+//             background-color: #f0f1f3;
+//         }
+//     }
+// }
+
+.btn {
+    
+  
+    border-radius: 5px;
+    padding: 7px 20px;
+
+    color: #fff;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color .15s ease-in-out;
+   
+}
+
+.btn-succeed {
+    background-color: #4bac4d;
+      // background-color: #6d6d6d;
+    // background-color: #000;
+    // background-color: orange;
+    &:hover {
+        background-color: #009232;
+    }
+}
+
+.tableView {
+    margin-top: 32px;
+    // height: 400px;
+    overflow: auto;
+
+    .table {
+        width: 100%;
+        table-layout: fixed;
+        min-width: 875px;
+        border-collapse: collapse;
+    }
+    
+    .thead {
+        tr {
+            border: 0.5px solid rgb(212, 231, 249);
+        }
+    }
+    
+    .thead th {
+        position: sticky;
+        top: 0;
+        background-color: #f6f9fc;
+        background-color: #e6f1fe;
+    
+        color: #000;
+        font-size: 13px;
+        padding: 10px 10px;
+        word-break: break-all;
+        text-align: left;
+        vertical-align: middle;
+    }
+    
+    tr td {
+        text-align: left;
+        padding: 10px 10px;
+    }
+    
+    // th.delete {
+    //     width: 50px;
+    //     text-align: right;
+    //     .icon-delete {
+    //         font-size: 20px;
+    //         color: #666;
+    //     }
+        
+    // }
+    
+    
+    th.code {
+        width: 100%;
+        padding: 10px 10px 10px 25px;
+        text-align: center;
+    }
+    th.date {
+        width: 240px;
+        padding: 10px 10px 10px 25px;
+        text-align: center;
+    }
+    
+    th.productQuantity {
+        width: 240px;
+        padding: 10px 10px 10px 30px;
+        text-align: center;
+    }
+    
+    th.itemQuantity {
+        width: 240px;
+        padding: 10px 0px 10px 10px;
+        text-align: center;
+    }
+    
+    
+    
+    
+    th.totalPrice {
+        width: 240px;
+        text-align: center;
+        padding: 10px 40px 10px 10px;
+    
+    }
+ 
+}
+
+
+
+
+
+
+.form-group {
+    display: flex;
+    width: 100%;
+    padding: 10px 0 10px 0;
+
+    label {
+        width: 110px;
+    }
+
+    & + .form-group {
+    border-top: 1px solid #ddd;
+
+    }
+}
+

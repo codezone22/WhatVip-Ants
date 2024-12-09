@@ -1,0 +1,87 @@
+.outerVoucher{
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    max-width: 300px;
+    width: 250px;
+    overflow: hidden;
+    gap: 10px;
+    transition: all 0.15s ease-in-out;
+    padding: 0px -10px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn{
+    from{
+        background-color: #f1f1f1;
+    }
+    to{
+        background-color: #dad9d9;
+    }
+}
+
+
+.outerVoucher:hover {
+    background-color: #dad9d9;
+}
+
+.outerVoucher:hover .bottomInfo .condition {
+    color: black;
+}
+
+.bottomInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.condition{
+    font-size: 12px;
+    color: #2f5acf;
+    line-height: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0px 2px;
+    user-select: none;
+}
+
+.halfBubble{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.lineBreak{
+    width: 50px;
+    border-right: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+.contentContainer{
+    padding: 10px 20px; 
+    color: #231D20;
+}
+
+.voucherCode{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.voucherDes{
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 23; 
+   -webkit-box-orient: vertical;
+}
+

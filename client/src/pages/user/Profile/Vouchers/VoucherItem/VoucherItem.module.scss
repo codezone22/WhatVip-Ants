@@ -1,0 +1,125 @@
+.outerVoucher{
+    cursor: default;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    max-width: 300px;
+    width: 270px;
+    overflow: hidden;
+    gap: 10px;
+    transition: all 0.15s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{
+        background-color: #f1f1f1;
+    }
+    to{
+        background-color: #dad9d9;
+    }
+}
+
+
+.outerVoucher:hover {
+    background-color: #dad9d9;
+}
+
+.outerVoucher:hover .bottomInfo .condition {
+    color: black;
+}
+
+.bottomInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.condition{
+    font-size: 12px;
+    color: #2f5acf;
+    line-height: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 0px 2px;
+    user-select: none;
+}
+
+.condition:hover{
+    color: #2f5acf !important;
+}
+
+.condition:active{
+    opacity: 0.7;
+}
+
+.halfBubble{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.lineBreak{
+    width: 50px;
+    border-right: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+.contentContainer{
+    padding: 10px 20px; 
+    color: #231D20;
+}
+
+.voucherCode{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.voucherDes{
+    font-size: 12px;
+    margin-bottom: 16px;
+    font-weight: 500;
+    overflow: hidden;
+    display: -webkit-box;
+    min-height: 54px;
+    min-width: 200px;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 23; 
+   -webkit-box-orient: vertical;
+}
+
+.voucherOutDate{
+    font-size: 12px;
+    color: #999999;
+    line-height: 20px;
+    font-style: italic;
+}
+
+.buttonApply{
+    padding: 7px 12px;
+    border-radius: 40px;
+    box-sizing: border-box;
+    border: #231D20 1px solid;
+    display: flex;
+    width: 135px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s linear;
+}
+.buttonApply .textButtonApply {
+    font-weight: 600;;
+    transition: 0.1s linear;
+}
+.buttonApply:hover .textButtonApply{
+    color: white;
+}
+.buttonApply:hover{
+    background-color: #231D20;
+}
+

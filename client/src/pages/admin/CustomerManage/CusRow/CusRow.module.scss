@@ -1,0 +1,78 @@
+.row-item {
+    border: 1px solid #ddd;
+    border-top: none;
+
+    &:hover {
+        background-color: #f2fbf5;
+    }
+
+    &.showDetail {
+        background-color: #e6f8ec;
+        border-bottom: none;
+        border-right: 1px solid #4cb050;
+        border-left: 2px solid #4cb050;
+
+        td {
+            border-top: 1px solid #4cb050;
+        }
+    }
+    cursor: pointer;
+}
+
+.bill-detail-cus {
+    border-left: 2px solid #4cb050;
+    border-right: 1px solid #4cb050;
+    border-bottom: 1px solid #4cb050;
+}
+
+.expired-item {
+    background-color: rgb(247, 202, 202);
+    border-radius: 12px;
+    width: fit-content;
+    color: red;
+    padding: 5px 16px;
+    align-items: center;
+}
+
+.unExpired-item {
+    background-color: rgb(202, 247, 209);
+    border-radius: 12px;
+    width: fit-content;
+    color: green;
+    padding: 5px 16px;
+    align-items: center;
+}
+.product-fucntion {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0px 28px 20px 0;
+    .btn {
+        font-weight: bold;
+    }
+}
+
+.btn {
+
+    display: inline-flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 7px 20px;
+    color: #fff;
+    font-weight: 600;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color .15s ease-in-out;
+
+}
+
+.btn-succeed {
+    background-color: #4bac4d;
+
+    // background-color: #6d6d6d;
+    // background-color: #000;
+    // background-color: orange;
+    &:hover {
+        background-color: #009232;
+    }
+}

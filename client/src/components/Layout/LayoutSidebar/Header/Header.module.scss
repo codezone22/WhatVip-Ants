@@ -1,0 +1,35 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 10;
+    transition: all .3s;
+    background-color: #212121;
+}
+
+.header {
+    background-color: #212121;
+    transition: all .3s;
+    position: flex;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (min-width:1440px) {
+    .header {
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+}
+
+.header-logo {
+    height: unset;
+    width: 144px;
+}
+

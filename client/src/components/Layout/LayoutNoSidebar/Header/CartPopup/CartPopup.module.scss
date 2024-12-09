@@ -1,0 +1,54 @@
+.wrapper {
+
+    position: absolute;
+    top: 100%;
+    width: 400px;
+    font-size: 14px;
+    color: black;
+    transform: translateX(-100%);
+    cursor: default;
+    max-height: 600px; 
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
+    z-index: 100;
+    &.sticky {
+        top: 0;
+        right: 0;
+        position: fixed;
+    }
+
+    .inner {
+        margin-top: 4px;
+        background-color: white;
+        box-shadow: 1px 0.5px 1px rgba(0,0,0,0.2);
+        max-height: 500px;
+        border-radius: 4px;
+       // gap: 32px;
+        width: 400px;
+        padding: 16px;
+    }
+    .separate {
+        height: 1px;
+        background-color: #ededed;
+        width: 100%;
+    }
+
+    .title {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: #000;
+        text-transform: uppercase;
+        width: fit-content;
+    }
+    .list-product-filter {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    
+
+    
+}

@@ -1,0 +1,99 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    padding: 0 64px;
+    background-color: #d9d9d9;
+}
+.main__sideBar{
+    flex: 2;
+    margin-top: 10px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 10px;
+    height: 480px;
+}
+
+.tab_container{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0px rgba(0, 0, 0, 0.1);
+    padding: 14px 12px;
+    border-radius: 8px;
+    animation: 0.3s linear;
+    margin: 0 0 10px;
+    transition: all 0.25s ease;
+}
+
+.tab_container:hover{
+    background-color: black;
+}
+
+.tab_container:hover .tab_icon{
+   fill: black;
+   filter: invert(1);
+}
+
+.tab_container:hover .tab_info{
+    color: white;
+}
+
+.tab_container:hover .tab_arrowRight{
+    color: white;
+    opacity: 1;
+}
+ 
+.tab_container .tab_container_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tab_icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    transition: all 0.25s ease;
+}
+
+.tab_info{
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.tab_arrowRight{
+    width: 26px;
+    height: 26px;
+    color: black;
+    transition: all 0.25s ease;
+    opacity: 0;
+}
+
+.main__page{
+    flex: 5;
+    background-color: white;
+    margin-left: 70px;
+    margin-top: 17px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.active-item {
+    background-color: black;
+    color: white;
+    .tab_arrowRight{
+        color: white;
+        opacity: 1;
+    }
+    .tab_icon{
+        filter: invert(1);
+    }
+}
+
+.sidebar-item-link{
+    text-decoration: none;
+    color: black;
+}

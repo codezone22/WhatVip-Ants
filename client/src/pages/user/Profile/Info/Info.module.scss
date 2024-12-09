@@ -1,0 +1,205 @@
+.container{
+    padding: 35px 50px;
+}
+
+.account-info__form{
+    margin-bottom: 40px;
+}
+
+.account-page__title{
+    font-size: 25px;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+.account-info__field{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.account-info__label{
+    color: rgba(0,0,0,.5333333333);
+    font-size: 14px;
+    width: 300px;
+    max-width: 50%;
+}
+
+.account-info__value{
+    color: #231f20;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.account-page__icon{
+    font-size: 26px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+.account-info__value_lower{
+    color: #231f20;
+    font-size: 14px;
+    text-transform: lowercase;
+    font-weight: 500;
+}
+
+.account-info__btn{
+    cursor: pointer;
+    padding: 7px 12px;
+    border-radius: 40px;
+    box-sizing: border-box;
+    border: #231D20 1px solid;
+    display: flex;
+    width: 135px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s linear;
+}
+.account-info__btn .account-info__btn-text {
+    font-weight: 600;
+    transition: 0.1s linear;
+}
+.account-info__btn:hover .account-info__btn-text{
+    color: white;
+}
+.account-info__btn:hover{
+    background-color: #231D20;
+}
+
+#popup__editInfo:checked ~ .outer_popup{
+    display: block;
+    opacity: 1;
+}
+
+#popup__editInfo:checked ~ .backdrop{
+    opacity: 1;
+    display: block;
+}
+
+.outer_popup{
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    width: 50vw;
+    max-width: 600px;
+    transform: translate(-50%, -50%);
+    animation: fadeFromBottom linear 0.2s forwards;
+}
+
+.popup{
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 16px;
+    padding: 2rem;
+    z-index: 12;
+}
+
+.backdrop{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    animation: fadeIn linear 0.2s forwards;
+    display: none;
+}
+
+#outer_popup_pass{
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    width: 50vw;
+    max-width: 600px;
+    transform: translate(-50%, -50%);
+    animation: fadeFromBottom linear 0.2s forwards;
+}
+
+#backdrop_pass{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    animation: fadeIn linear 0.2s forwards;
+    display: none;
+}
+
+#popup__editPass:checked ~ #outer_popup_pass{
+    display: block;
+    opacity: 1;
+}
+
+#popup__editPass:checked ~ #backdrop_pass{
+    opacity: 1;
+    display: block;
+}
+
+@keyframes fadeFromBottom{
+    from{
+        opacity: 0;
+        top: 100%;
+    }
+    to{
+        opacity: 1;
+        top: 50%;
+    }
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@media (max-width:500px) {
+    .container{
+        padding: 10px 8px;
+    }
+    .account-page__icon{
+        display: block;
+    }
+    #popup__editInfo:checked ~ .outer_popup{
+        display: block;
+        opacity: 1;
+        width: 95%;
+       // margin: 0px 4px;
+    }
+
+    #popup__editPass:checked ~ #outer_popup_pass{
+        display: block;
+        opacity: 1;
+        width: 95%;
+        margin: 0px 4px;
+    }
+}
+
+@media (min-width:500px) and (max-width:1024px) {
+    .container{
+        padding: 10px 8px;
+    }
+    .account-page__icon{
+        display: none;
+    }
+    #popup__editInfo:checked ~ .outer_popup{
+        display: block;
+        opacity: 1;
+        width: 90%;
+       // margin: 0px 15px;
+    }
+    #popup__editPass:checked ~ #outer_popup_pass{
+        display: block;
+        opacity: 1;
+        width: 100%;
+        margin: 0px 15px;
+    }
+}
+

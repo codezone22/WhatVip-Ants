@@ -1,0 +1,35 @@
+.container-rieview {
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+}
+
+.title-review {
+    font-size: 12px;
+}
+.container-images {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.images-list {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    margin: 8px 8px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+.message-review {
+    width: 100%;
+    font-size: 14px;
+    height: auto;
+    text-align: justify;
+}

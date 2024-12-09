@@ -1,0 +1,79 @@
+
+
+
+
+.product-item {
+    td.checkbox {
+        width: 40px;
+        .icon-checkbox {
+            font-size: 16px;
+            color: #00B63E;
+        }
+        
+    }
+    
+    td.img {
+        text-align: center;
+        img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+        }
+    }
+    
+    td.code {
+        
+    }
+    
+    td.name {
+        
+    }
+    
+    td.price-buy {
+        
+        text-align: right;
+    }
+    
+    td.price-origin {
+        
+        text-align: right;
+    
+    }
+    
+    td.quantity {
+        text-align: right;
+        padding: 10px 40px 10px 10px;
+    
+    }
+    
+    td.status {
+        
+    }
+     
+    border: 1px solid #ddd;
+    border-top: none;
+    
+    &:hover {
+        background-color: #f2fbf5;
+    }
+
+    &.showDetail {
+        background-color: #e6f8ec;
+        border-bottom: none;
+        border-right: 1px solid #4cb050;
+        border-left: 2px solid #4cb050;
+
+        td {
+            border-top: 1px solid #4cb050;
+        }
+    }
+
+    
+    cursor: pointer;
+}
+.product-detail {
+    border-left: 2px solid #4cb050;
+    border-right: 1px solid #4cb050;
+    border-bottom: 1px solid #4cb050;
+}
+

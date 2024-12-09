@@ -1,0 +1,85 @@
+.wrapper {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    max-height: 350px;
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    
+    
+    
+    
+        thead th {
+            position: sticky;
+            background-color: #f6f9fc;
+            top: 0;
+            color: #84935a;
+            font-size: 13px;
+            padding: 5px 20px;
+            word-break: break-all;
+            text-align: left;
+            vertical-align: middle;
+            width: calc(100% / 3);
+            z-index: 10;
+    
+            &.quantity {
+                text-align: center;
+                width: 100px;
+            }
+    
+        }
+    
+    
+        tr td {
+            text-align: left;
+            padding: 5px 20px;
+            width: calc(100% / 3);
+            height: 40px;
+            position: relative;
+    
+    
+    
+            &.quantity {
+                text-align: center;
+                width: 60px;
+            }
+        }
+    
+    
+       
+    }
+     .wrapper::-webkit-scrollbar {
+        width: 4px;
+    
+      }
+      
+      /* Track */
+      .wrapper::-webkit-scrollbar-track {
+        background-color: transparent;
+        
+      }
+       
+      /* Handle */
+      .wrapper::-webkit-scrollbar-thumb {
+        background: #c2c7ce; 
+        border-radius: 10px;
+      }
+}
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
