@@ -1,0 +1,89 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    padding: 0 64px;
+    background-color: #d9d9d9;
+}
+.main__sideBar{
+    flex: 2;
+    margin-top: 10px;
+}
+
+.tab_container{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 12px;
+    border-radius: 8px;
+    animation: 0.3s linear;
+    margin: 7px 0;
+}
+
+.tab_container:hover{
+    background-color: black;
+}
+
+.tab_container:hover .tab_icon{
+   fill: black;
+}
+
+.tab_container:hover .tab_info{
+    color: white;
+}
+
+.tab_container:hover .tab_arrowRight{
+    color: white;
+}
+ 
+.tab_container .tab_container_info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tab_icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.tab_info{
+    font-weight: 500;
+}
+
+.tab_arrowRight{
+    width: 26px;
+    height: 26px;
+    color: black;
+}
+
+.main__page{
+    flex: 5;
+    background-color: white;
+    margin-left: 70px;
+    margin-top: 17px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+@media (max-width:500px) {
+    .container{
+        display: flex;
+        flex-direction: row;
+        padding: 0 20px;
+        background-color: white;
+    }
+    .main__sideBar{
+        margin-top: 10px;
+    }
+    .main__page{
+        background-color: white;
+       margin-left: 0px;
+        margin-top: 17px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+}

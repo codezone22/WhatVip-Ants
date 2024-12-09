@@ -1,0 +1,66 @@
+
+
+
+.bill-item {
+     
+    border: 1px solid #ddd;
+    border-top: none;
+    
+    &:hover {
+        background-color: #f2fbf5;
+    }
+
+    
+
+    
+    cursor: pointer;
+
+    td {
+        padding: 10px 0px;
+        padding-right: 10px;
+    }
+    td.code {
+        color: #0070f4;
+        text-align: center;
+    }
+    td.name {
+        padding-left: 20px;
+    }
+    
+    td.type {
+        text-align: center;
+    }
+    
+    td.color-size {
+       text-align: center;
+    }
+    
+    td.quantity {
+    
+        text-align: center;
+    }
+    
+    
+    
+    
+    td.unitPrice {
+        text-align: right;
+        
+    
+    }
+    td.discountPrice {
+        text-align: right;
+    
+    }
+    td.sellPrice {
+        text-align: right;
+        
+     
+    }
+    td.price {
+        text-align: right;
+        padding-right: 20px;
+    
+       
+    }
+}

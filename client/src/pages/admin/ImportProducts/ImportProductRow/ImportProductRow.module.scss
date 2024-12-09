@@ -1,0 +1,108 @@
+.product-item {
+    td.delete {
+        width: 50px;
+        text-align: right;
+        .icon-delete {
+            font-size: 20px;
+            color: #666;
+                // color: #00B63E;
+    
+                &:hover {
+                    color: rgb(220, 12, 12);
+                }
+        }
+        
+    }
+    
+    td.stt {
+        width: 50px;
+        text-align: center;
+    }
+    
+    
+    td.code {
+        color: #0070f4;
+    }
+    
+    td.name {
+        
+    }
+    
+    td.quantity {
+        text-align: center;
+    }
+    
+    td.unitPrice {
+        
+        text-align: center;
+        input {
+            padding: 7px 5px;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #c2c7ce;
+            width: 100%;
+            height: 32px;
+            color: #15171a;
+        
+            &:focus {
+                border-bottom: 2px solid #00b63e;
+                padding-bottom: 6px;
+            }
+        }
+    
+    }
+    
+    td.price {
+        
+        text-align: right;
+        padding: 10px 40px 10px 10px;
+        
+    }
+    
+    td.import {
+        padding: 10px 0;
+    }
+    
+    .product-item {
+         
+        border: 1px solid #ddd;
+        border-top: none;
+        height: 56px;
+      
+        &:hover {
+            background-color: #f2fbf5;
+        }
+    
+       
+        
+        cursor: pointer;
+    }
+    
+    .btn {
+        
+      
+        border-radius: 3px;
+        padding: 7px 20px;
+    
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color .15s ease-in-out;
+       
+    }
+    
+    .btn-succeed {
+        background-color: #4bac4d;
+          // background-color: #6d6d6d;
+        // background-color: #000;
+        // background-color: orange;
+        &:hover {
+            background-color: #009232;
+        }
+    }
+}
+
+
+
+
+

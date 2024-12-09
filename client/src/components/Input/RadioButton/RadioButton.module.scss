@@ -1,0 +1,72 @@
+.outer-child{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding:  4px;
+    font-size: 14px;
+    color: #999;
+    margin-right: 6px;
+}
+.outer-child:hover{
+    outline: none;
+    opacity: 0.9;
+}
+
+
+.sub-outer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding-top: 4px;
+}
+
+.container{
+    padding-left: 0;
+    margin-top: 6px;
+}
+
+
+.dot-not-tick{
+    position: absolute;
+    background-color: white;
+    border: 1px solid #808082;
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+    
+}
+
+.outer{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+}
+
+.dot-outer{
+    position: relative;
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item-name{
+    padding-left: 24px;
+    font-size: 14px;
+    user-select: none;
+    color: #696969;
+    visibility: visible;
+}
+
+.dot-tick{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: #6a5af9;
+    width: 18px;
+    height: 18px;
+    border-radius: 10px;
+}

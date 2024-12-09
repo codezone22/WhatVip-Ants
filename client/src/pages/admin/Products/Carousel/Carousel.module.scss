@@ -1,0 +1,68 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+ 
+
+}
+
+
+.item {
+    width: calc(100% - 70px);
+    object-fit: cover;
+    
+    pointer-events: none;
+
+}
+
+.button-switch {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.icon {
+    font-size: 20px;
+    color: #333;
+}
+
+.icon-left {
+    left: 10%;
+}
+
+.icon-right {
+    right: 10%
+}
+
+.indicators {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+}
+
+.indicator {
+    background-color: #fff;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 5px #555;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.indicator-inactive {
+    background-color: rgb(160, 158, 158);
+}

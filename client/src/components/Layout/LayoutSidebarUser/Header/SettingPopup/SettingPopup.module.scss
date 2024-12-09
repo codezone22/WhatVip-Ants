@@ -1,0 +1,74 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.outerSetting{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: '0px -7px';
+}
+
+.popupContentContainer{
+    padding: 100px 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.vouchersContainer{
+    margin-bottom: 20px;
+}
+
+.outerVouchers{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.greetHeader{
+    z-index: 10;
+    display: flex;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    flex-direction: row;
+    font-size: 36px;
+    padding: 16px 36px;
+    color:#231f20;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.titleVoucher{
+    font-weight: 400;
+    color:#231f20;
+    margin-bottom: 10px;
+}
+
+.btnToProfile{
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #2f5acf;
+    height: 65px;
+    animation: 0.1s linear;
+    flex-shrink: 0;
+    margin-bottom: 15px;
+}
+
+.btnToProfile:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.btnToProfile .textToProfile{
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+}

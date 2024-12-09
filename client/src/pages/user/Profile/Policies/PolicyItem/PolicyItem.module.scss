@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px 0px; 
+    background-color: #f1f1f1;
+    border-radius: 6px;
+    margin: 15px 0px;
+    user-select: none   ;
+}
+
+.outer_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+.question{
+    font-size: 16px;
+    color: #231f20;
+}
+
+.icon_plus{
+    width: 16px;
+    height: 16px;
+}
+
+.content{
+    display: none;
+    font-size: 14px;
+    color: #24242499;
+    margin: 14px 0;
+}
+
+.pop_content{
+    display: block;
+}

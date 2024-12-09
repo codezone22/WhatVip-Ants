@@ -1,0 +1,195 @@
+input::-ms-reveal,
+
+input::-ms-clear {
+    display: none;
+}
+
+// ----------------------------------------------------------- TYPE 1 ---------------------------------------------------------
+
+.type_1_form-input{
+    padding: 0 20px;
+    border: 1px solid #c0c0c0;
+    border-radius: 6px;
+    width: 100%;
+    height: 50px;
+    transition: 0.25s ease;
+    outline: none;
+    padding-left: 38px;
+}
+.type_1_form-input:focus{
+    border-color: #6a5af9;
+}
+
+.type_1_form-field{
+    position: relative;
+}
+
+.type_1_form-label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+    user-select: none;
+    color: #999;
+    pointer-events: none;
+    transition: 0.25s ease;
+    z-index: 1;
+}
+
+.type_1_form-input:not(:placeholder-shown) + .type_1_form-label{
+    top: 0;
+    left: 30px;
+    padding: 0 8px;
+    display: inline-block;
+    background-color: white;
+    color: #999;
+    font-size: 12px;
+}
+
+.type_1_form-input:focus + .type_1_form-label{
+    top: 0;
+    left: 30px;
+    padding: 0 8px;
+    display: inline-block;
+    background-color: white;
+    color: #6a5af9 !important;
+    font-size: 12px;
+}
+
+.type_1_form-input:focus + .type_1_form-icon{
+    background-color: #6a5af9;
+}
+
+.type_1_form-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    user-select: none;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.type_1_eye{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    user-select: none;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.type_1_iconHide{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+// :placeholder-shown
+
+// ----------------------------------------------------------- TYPE 2 ---------------------------------------------------------
+
+.type_2_form-input{
+    padding: 0 10px;
+    border: 1px solid #c0c0c0;
+    border-radius: 6px;
+    width: 100%;
+    height: 45px;
+    transition: 0.25s ease;
+    outline: none;
+    padding-left: 18px;
+    font-size: 14px
+}
+.type_2_form-input:focus{
+    border-color: #6a5af9;
+}
+
+.type_2_form-field{
+    position: relative;
+}
+
+.type_2_form-label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+    user-select: none;
+    color: #999;
+    pointer-events: none;
+    transition: 0.25s ease;
+    z-index: 1;
+    font-size: 14px;
+}
+
+.type_2_form-input:not(:placeholder-shown) + .type_2_form-label{
+    top: 0;
+    left: 15px;
+    padding: 0 8px;
+    display: inline-block;
+    background-color: white;
+    color: #999;
+    font-size: 12px;
+}
+
+.type_2_form-input:focus + .type_2_form-label{
+    top: 0;
+    left: 15px;
+    padding: 0 8px;
+    display: inline-block;
+    background-color: white;
+    color: #6a5af9 !important;
+    font-size: 12px;
+}
+
+.type_2_form-input:focus + .type_2_form-icon{
+    background-color: #6a5af9;
+}
+
+.type_2_form-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    width: 20px;
+    height: 20px;
+    user-select: none;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.type_2_eye{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    user-select: none;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.type_2_iconHide{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------------------

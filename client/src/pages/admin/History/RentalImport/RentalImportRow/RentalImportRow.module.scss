@@ -1,0 +1,73 @@
+
+
+
+
+
+
+
+
+
+
+.product-item {
+
+    td.code {
+        width: 100%;
+        color: #0070f4;
+        padding: 10px 10px 10px 25px;
+        text-align: center;
+    }
+    td.date {
+        width: 240px;
+        padding: 10px 10px 10px 25px;
+        text-align: center;
+    }
+    
+    td.productQuantity {
+        width: 240px;
+        padding: 10px 10px 10px 30px;
+        text-align: center;
+    }
+    
+    td.itemQuantity {
+        width: 240px;
+        padding: 10px 0px 10px 10px;
+        text-align: center;
+    }
+    
+    
+    
+    
+    td.totalPrice {
+        width: 240px;
+        text-align: center;
+        padding: 10px 40px 10px 10px;
+    
+    }
+     
+    border: 1px solid #ddd;
+    border-top: none;
+    
+    &:hover {
+        background-color: #f2fbf5;
+    }
+
+    &.showDetail {
+        background-color: #e6f8ec;
+        border-bottom: none;
+        border-right: 1px solid #4cb050;
+        border-left: 2px solid #4cb050;
+
+        td {
+            border-top: 1px solid #4cb050;
+        }
+    }
+
+    
+    cursor: pointer;
+}
+.product-detail {
+    border-left: 2px solid #4cb050;
+    border-right: 1px solid #4cb050;
+    border-bottom: 1px solid #4cb050;
+}
+

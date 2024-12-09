@@ -1,0 +1,47 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-text-color : #231f20;
+    --background-color: #d9d9d9;
+    
+}
+
+
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    max-width: 100%;
+    overflow-x: hidden;
+  
+}
+
+body {
+    font-family: 'AR One Sans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--primary-text-color);
+    text-align: left;
+    text-rendering: optimizeSpeed;
+}
+@keyframes dropTop {
+    0%{
+        transform: translateY(100%) scale(0);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,101 @@
+.outerAddress{
+    font-size: 16px;
+    padding: 10px;
+}
+
+.headAddress{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addressName{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+    gap: 10px;
+}
+
+.defaultBtn{
+    padding: 5px;
+    border: 1px #c1c1c1 solid; 
+    border-radius: 30px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px; 
+}
+
+.controlBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+}
+
+.updateBtn{
+    font-size: 14px;
+    color: #2f5acf;
+    cursor: pointer;
+}
+
+
+.updateBtn:hover {
+    color: #161616;
+}
+.updateBtn:active {
+    opacity: 0.8;
+}
+
+.lineBreak{
+    height: 14px;
+    width: 1px;
+    margin: 0 5px;
+    background-color: #161616;
+}
+
+.deleteBtn{
+    font-size: 14px;
+    color: #2f5acf;
+    cursor: pointer;
+
+}
+
+.deleteBtn:hover {
+    color: #161616;
+}
+.deleteBtn:active {
+    opacity: 0.8;
+}
+
+.outerContainer{
+    margin-top: 5px;
+    font-size: 14px;
+}
+@media (max-width:500px) {
+    .defaultBtn{
+        padding: 2px;
+        border: 1px #c1c1c1 solid; 
+        border-radius: 30px;
+        font-size: 10px;
+        display: flex;
+        flex-direction: row;
+    }
+    .addressName{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        font-weight: 600;
+        gap: 2px;
+    }
+    .headAddress{
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+    }
+}

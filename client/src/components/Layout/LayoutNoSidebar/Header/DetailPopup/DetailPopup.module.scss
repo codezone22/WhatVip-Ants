@@ -1,0 +1,464 @@
+@media only screen and (max-width: 767px) {
+    .wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1100 !important;
+        background-color: rgba(0,0,0,0.3);
+        &.sticky {
+            top: 0;
+            position: fixed;
+        }
+        
+        .inner {
+            margin: 0 10%;
+            background-color: #ededed;
+            padding: 32px 32px 40px 32px;
+            display: flex;
+            flex-direction: column;
+            .content-inner {
+                display: flex;
+                justify-content: space-evenly;
+                .seprate-vertical {
+                    height: 80%;
+                    width: 2px;
+                    background-color: #b61a1a;
+                }
+            }
+            .title {
+                display: block;
+                padding-bottom: 8px;
+                font-size: 14px;
+                font-weight: 700;
+                color: #000;
+                text-transform: uppercase;
+                width: fit-content;
+                position: relative;
+            }
+            .container-product-type {
+                display: flex;
+                gap: 30px;
+                .product-type {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    flex-wrap: wrap;
+            
+                    .product-type-item {
+                        color: rgb(112, 113, 113);
+                        font-size: 14px;
+                        font-weight: 500;
+                        margin-right: 40px;
+                        cursor: pointer;
+                        &:hover{
+                            color: #000;
+                        }
+                    }
+                    
+                }
+            }
+            
+            .product-list-img {
+                display: flex;
+                gap: 16px;
+                margin-top: 20px;
+                max-width: 100%;
+                .product-list-1 {
+                    display: flex;
+                    gap: 16px;
+                    .img-wrapper {
+                        overflow: hidden;
+                        cursor: pointer;
+                        position: relative;
+                        .overlay2 {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(74, 69, 69, 0.3); 
+                        }
+                        
+                        &:hover img{
+                                
+                            scale: 1.2;
+                        }
+                        img {
+                            transition: scale .2s linear;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;   
+                        }
+                        span {
+                            position: absolute;
+                            font-weight: 600;
+                            bottom: 10px;
+                            left: 10px;
+                            font-size: 14px;
+                        }
+                        
+                    }
+        
+                    
+                }
+                .product-list-2 {
+                    .img-wrapper {
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                        height: 100%;
+                        &:hover img{
+                                
+                            scale: 1.2;
+                        }
+                        img {
+                            transition: scale .2s linear;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+        
+                           
+                        }
+                        span {
+                            position: absolute;
+                            font-weight: 600;
+                            bottom: 10px;
+                            left: 10px;
+                            font-size: 14px;
+                        }
+                        .overlay2 {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(74, 69, 69, 0.3);                           
+                        }
+                    }
+                }
+            }
+        }  
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 1100 !important;
+        background-color: rgba(0,0,0,0.3);
+        &.sticky {
+            top: 0;
+            position: fixed;
+        }
+        
+        .inner {
+            margin: 0 10%;
+            background-color: #ededed;
+            padding: 32px 32px 40px 32px;
+            display: flex;
+            flex-direction: column;
+            .content-inner {
+                display: flex;
+                justify-content: space-evenly;
+                .seprate-vertical {
+                    height: 80%;
+                    width: 2px;
+                    background-color: #b61a1a;
+                }
+            }
+            .title {
+                display: block;
+                padding-bottom: 8px;
+                font-size: 14px;
+                font-weight: 700;
+                color: #000;
+                text-transform: uppercase;
+                width: fit-content;
+                position: relative;
+            }
+            .container-product-type {
+                display: flex;
+                gap: 30px;
+                .product-type {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    flex-wrap: wrap;
+            
+                    .product-type-item {
+                        color: rgb(112, 113, 113);
+                        font-size: 14px;
+                        font-weight: 500;
+                        margin-right: 40px;
+                        cursor: pointer;
+                        &:hover{
+                            color: #000;
+                        }
+                    }
+                    
+                }
+            }
+            
+            .product-list-img {
+                display: flex;
+                gap: 16px;
+                margin-top: 20px;
+                max-width: 100%;
+                .product-list-1 {
+                    display: flex;
+                    gap: 16px;
+                    .img-wrapper {
+                        overflow: hidden;
+                        cursor: pointer;
+                        position: relative;
+                        .overlay2 {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(74, 69, 69, 0.3); 
+                        }
+                        
+                        &:hover img{
+                                
+                            scale: 1.2;
+                        }
+                        img {
+                            transition: scale .2s linear;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;   
+                        }
+                        span {
+                            position: absolute;
+                            font-weight: 600;
+                            bottom: 10px;
+                            left: 10px;
+                            font-size: 14px;
+                        }
+                        
+                    }
+        
+                    
+                }
+                .product-list-2 {
+                    .img-wrapper {
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                        height: 100%;
+                        &:hover img{
+                                
+                            scale: 1.2;
+                        }
+                        img {
+                            transition: scale .2s linear;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+        
+                           
+                        }
+                        span {
+                            position: absolute;
+                            font-weight: 600;
+                            bottom: 10px;
+                            left: 10px;
+                            font-size: 14px;
+                        }
+                        .overlay2 {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(74, 69, 69, 0.3);                           
+                        }
+                    }
+                }
+            }
+        }  
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 400;
+        background-color: rgba(0,0,0,0.3);
+        
+        &.sticky {
+            top: 0;
+            position: fixed;
+        }
+        
+        .inner {
+            margin: 0 10%;
+            background-color: #ededed;
+            padding: 32px 32px 60px 32px;
+            display: flex;
+            gap: 30px;
+            .content-inner {
+                display: flex;
+                justify-content: space-between;
+                .seprate-vertical {
+                    width: 1px;
+                    background-color: #ccc;
+                    height: 80%;
+                    margin: 14% 20px 0px 0px;
+                }
+            }
+            .title {
+                display: block;
+                padding-bottom: 8px;
+                font-size: 14px;
+                font-weight: 700;
+                color: #000;
+                text-transform: uppercase;
+                width: fit-content;
+                position: relative;
+                .seprate-bar {
+                    width: 100%;
+                    height: 2px;
+                    background-color: #ccc;
+                    position: absolute;
+                    top: calc(100% - 4px);
+    
+                }
+            }
+            .container-product-type {
+                display: flex;
+                gap: 60px;
+                .product-type {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    flex-wrap: wrap;
+            
+                    .product-type-item {
+                        color: rgb(112, 113, 113);
+                        font-size: 14px;
+                        font-weight: 500;
+                        margin-right: 40px;
+                        cursor: pointer;
+                        &:hover {
+                            color: #000;
+                        }
+                    }
+                    
+                }
+            }
+            
+            .product-list-img {
+                display: flex;
+                flex: 1;
+                gap: 16px;
+                max-height: 200px;
+                .product-list-1 {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+        
+                    .img-wrapper {
+                        overflow: hidden;
+                        cursor: pointer;
+                        flex: 1;
+                        position: relative;
+                        .overlay2 {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(74, 69, 69, 0.3);
+        
+                         
+                           
+                        }
+                        
+                        &:hover img{
+                                
+                            scale: 1.2;
+                        }
+                        img {
+                            transition: scale .2s linear;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                           
+                         
+                           
+                        }
+                        span {
+                            position: absolute;
+                            font-weight: 600;
+                            bottom: 10px;
+                            left: 10px;
+                            font-size: 14px;
+                        }
+                        
+                    }
+        
+                    
+                }
+                .product-list-2 {
+                    flex: 1;
+                    .img-wrapper {
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                        flex: 1;
+                        height: 100%;
+                        &:hover img{
+                                
+                            scale: 1.2;
+                        }
+                        img {
+                            transition: scale .2s linear;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+        
+                           
+                        }
+                        span {
+                            position: absolute;
+                            font-weight: 600;
+                            bottom: 10px;
+                            left: 10px;
+                            font-size: 14px;
+                        }
+                        .overlay2 {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(74, 69, 69, 0.3);
+                           
+                        }
+                       
+                    }
+                    
+                   
+                }
+            }
+        }  
+    }
+}
+
