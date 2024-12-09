@@ -6,13 +6,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '~/redux/api/authRequest';
+import { loginUser, loginWithGoogle } from '~/redux/api/authRequest';
+import { GoogleLogin } from '@react-oauth/google';
 
-
-
+//////
 const cx = classNames.bind(styles)
-
-
 
 function Login({navSignup, navForgot}) {
     const dispatch = useDispatch()
@@ -25,33 +23,51 @@ function Login({navSignup, navForgot}) {
         password: ''
     });
 
-    const handleChange = name => (e) => {
-        setValues({ ...values, [name]: e.target.value }); };
+    const handleGoogleSuccess = (response) => {
+        // Lấy token từ phản hồi của Google
+        const googleToken = response.credential;
+    
+        // Gọi hàm loginWithGoogle
+        loginWithGoogle(googleToken, dispatch, navigate, (res) => {
+            // Kiểm tra nếu lỗi trả về là 404
+            if (res?.response?.status === 404) {
+                notify('error', res.response.data); // Hiển thị thông báo lỗi
+            } else {
+                notify('success', 'Đăng nhập Google thành công!'); // Hiển thị thông báo thành công
+                navigate('/user-profile/info'); // Điều hướng tới trang thông tin người dùng
+            }
+        });
+    };
+    
 
-        const handleSubmit = () => {
-            try{
-                if(values.identifier.trim() === ''){
-                    notify("warning", "Vui lòng nhập Email hoặc Số Điện Thoại!")
-                    return;
-                }
-                if(values.password.trim() === ''){
-                    notify("warning", "Vui lòng nhập mật khẩu!")
-                    return;
-                }
-                loginUser(values, dispatch, navigate, (res) => {
-                    if(res?.response?.status === 404){
-                        notify("error", res.response.data)
-                    }
-                    else{
-                        notify("success", "Chào mừng bạn quay trở lại!")
-                        navigate("/user-profile/info");
-                    }
-                })
+    const handleGoogleFailure = (error) => {
+        notify('error', 'Đăng nhập Google thất bại!');
+    };
+
+    const handleChange = name => (e) => {setValues({ ...values, [name]: e.target.value }); };
+    
+    const handleSubmit = () => {
+        try {
+            if (values.identifier.trim() === '') {
+                notify('warning', 'Vui lòng nhập Email hoặc Số Điện Thoại!');
+                return;
             }
-            catch (err){
-                notify("error", err);
+            if (values.password.trim() === '') {
+                notify('warning', 'Vui lòng nhập mật khẩu!');
+                return;
             }
-        };
+            loginUser(values, dispatch, navigate, (res) => {
+                if (res?.response?.status === 404) {
+                    notify('error', res.response.data);
+                } else {
+                    notify('success', 'Chào mừng bạn quay trở lại!');
+                    navigate('/user-profile/info');
+                }
+            });
+        } catch (err) {
+            notify('error', err);
+        }
+    };
 
     const notify = (type, message) => toast(message, {type: type});
 
@@ -69,13 +85,47 @@ function Login({navSignup, navForgot}) {
                     <form style={{width:'100%', marginTop:'16px'}}>
                         <input onChange={handleChange("identifier")} value={values.identifier} placeholder='Email/SĐT của bạn' type='text' name='identifier' autoFocus='autoFocus' style={{border:'1px solid #ccc',height:'48px', borderRadius:'100vmax', width:'100%',boxSizing:'border-box', padding:'5px 20px',transition: 'all .2s', marginBottom:'16px'}}/>
                         <input onChange={handleChange("password")} placeholder='Mật khẩu'  type='password' name='password' autoFocus='autoFocus' style={{border:'1px solid #ccc',height:'48px', borderRadius:'100vmax', width:'100%',boxSizing:'border-box', padding:'5px 20px',transition: 'all .2s', marginBottom:'16px'}}/>
-                        {
-                            isLoading ? 
-                                <CustomeButton title={' Đang kiểm tra ... '} containStyles={{backgroundColor:'black', color:'white', width:'100%', height:'48px', borderRadius:'100vmax', alignItems:'center', display:'flex', justifyContent:'center'}} bgHover={'#ccc'}/>
-                            :
-                                <CustomeButton title={' Đăng nhập '} onClick={handleSubmit} containStyles={{backgroundColor:'black', color:'white', width:'100%', height:'48px', borderRadius:'100vmax', alignItems:'center', display:'flex', justifyContent:'center'}} bgHover={'#ccc'}/>
-                        }
+                        {isLoading ? 
+    <CustomeButton
+        title={' Đang kiểm tra ... '}
+        containStyles={{
+            backgroundColor: 'black',
+            color: 'white',
+            width: '100%',
+            height: '48px',
+            borderRadius: '100vmax',
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+        }}
+        bgHover={'#ccc'}
+    />
+:
+    <CustomeButton
+        title={' Đăng nhập '}
+        onClick={handleSubmit}
+        containStyles={{
+            backgroundColor: 'black',
+            color: 'white',
+            width: '100%',
+            height: '48px',
+            borderRadius: '100vmax',
+            alignItems: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+        }}
+        bgHover={'#ccc'}
+    />
+}
                     </form>
+                    {/* Nút đăng nhập bằng Google */}
+                    <div style={{ marginTop: '20px' }}>
+                        <GoogleLogin
+                            onSuccess={handleGoogleSuccess}
+                            onError={handleGoogleFailure}
+                            useOneTap
+                        />
+                    </div>
                     <div style={{display:'flex', justifyContent:'space-between',marginTop:'4px' }}>
                         <CustomeButton onClick={() => navSignup("signup")} title={'Đăng ký tài khoản mới'} containStyles={{backgroundColor:'white', color:'#2f5acf', width:'fit-content', fontSize:'14px'}}/>
                         <CustomeButton onClick={() => navForgot("forgot")} title={'Quên mật khẩu'} containStyles={{backgroundColor:'white', color:'#2f5acf', width:'fit-content', fontSize:'14px'}}/>

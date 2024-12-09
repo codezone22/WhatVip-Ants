@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema(
             required: [true, "Email is required"]
         },
         googleId: {
-            type: String,
-            default: null,
+            type: String,  // Lưu Google ID
+            default: null
         },
         gender: {
             type: Number,
@@ -36,11 +36,22 @@ const userSchema = new mongoose.Schema(
         },
         phoneNumber: {
             type: String,
-            required: [true, "Phone number is required"],
+            required: function() {
+                return !this.googleId;  // Chỉ yêu cầu password nếu không có googleId
+            },
         },
         password: {
             type: String,
-            required: [true, "password iss required"]
+            required: function() {
+                return !this.googleId;  // Chỉ yêu cầu password nếu không có googleId
+            },
+            validate: {
+                validator: function(value) {
+                    if (this.googleId) return true;  // Nếu có googleId, không cần mật khẩu
+                    return value && value.length >= 6;  // Kiểm tra mật khẩu nếu không có googleId
+                },
+                message: 'Password must be at least 6 characters'
+            }
         },
         role: {
             type: String,
