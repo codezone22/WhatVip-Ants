@@ -442,15 +442,68 @@ function ProductDetail() {
                     }
 
                     <div style={{ marginTop: '32px', padding: '16px 0', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                        <div style={{ display: 'inline-flex', borderRadius: '30px', height: '40px', width: '100px', alignItems: 'center', justifyContent: 'space-between', border: '1px solid #000' }}>
-                            <span onClick={() => { if (quantityAddCart === 1) return; setQuantityAddCart(prev => prev - 1) }} style={{ userSelect: 'none', display: 'inline-block', padding: '0px 16px', fontSize: '20px', cursor: 'pointer', fontWeight: '700' }}>-</span>
-                            <span style={{ display: 'inline-block', fontWeight: '600' }}>{quantityAddCart}</span>
-                            <span onClick={hanleClickPlusQuantity} style={{ userSelect: 'none', display: 'inline-block', padding: '0px 16px', fontSize: '20px', cursor: 'pointer', fontWeight: 'bold' }}>+</span>
-                        </div>
-                        <div onClick={handleClickBtnAddCart} className={cx('btn-add-cart')} >
-                            {indexSizeActive === -1 ? <span>Chọn kích thước</span> : <><BsCartCheck style={{ marginRight: '8px', fontSize: '20px' }} />  <span>Thêm vào giỏ hàng</span> </>}
-                        </div>
+                    <div
+                        style={{
+                        display: 'inline-flex',
+                        borderRadius: '30px',
+                        height: '40px',
+                        width: '100px',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        border: '1px solid #000',
+                        }}
+                    >
+                        <span
+                        onClick={() => {
+                            if (quantityAddCart === 1) return;
+                            setQuantityAddCart((prev) => prev - 1);
+                        }}
+                        style={{
+                            userSelect: 'none',
+                            display: 'inline-block',
+                            padding: '0px 16px',
+                            fontSize: '20px',
+                            cursor: 'pointer',
+                            fontWeight: '700',
+                        }}
+                        >
+                        -
+                        </span>
+                        <span style={{ display: 'inline-block', fontWeight: '600' }}>{quantityAddCart}</span>
+                        <span
+                        onClick={hanleClickPlusQuantity}
+                        style={{
+                            userSelect: 'none',
+                            display: 'inline-block',
+                            padding: '0px 16px',
+                            fontSize: '20px',
+                            cursor: 'pointer',
+                            fontWeight: 'bold',
+                        }}
+                        >
+                        +
+                        </span>
                     </div>
+                    <div
+                        onClick={product.status === 'Ngừng kinh doanh' ? null : handleClickBtnAddCart}
+                        className={cx('btn-add-cart')}
+                        style={{
+                        cursor: product.status === 'Ngừng kinh doanh' ? 'not-allowed' : 'pointer',
+                        }}
+                    >
+                        {product.status === 'Ngừng kinh doanh' ? (
+                        <span>Sản phẩm ngừng kinh doanh</span>
+                        ) : indexSizeActive === -1 ? (
+                        <span>Chọn kích thước</span>
+                        ) : (
+                        <>
+                            <BsCartCheck style={{ marginRight: '8px', fontSize: '20px' }} />
+                            <span>Thêm vào giỏ hàng</span>
+                        </>
+                        )}
+                    </div>
+                    </div>
+
 
                     <div className={cx('separate')}>
                     </div>
