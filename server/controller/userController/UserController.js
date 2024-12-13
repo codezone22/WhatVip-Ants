@@ -472,7 +472,7 @@ const getApiMoMo = async (req, res) => {
             extraData: extraData,
             requestType: requestType,
             signature: signature,
-            lang: 'vn'
+            lang: 'vi'
         });
         //Create the HTTPS objects
         const options = {

@@ -72,29 +72,33 @@ const authController = {
     },
 
     registerUser: async (req, res) => {
-        try{
-            const userPhone = await User.findOne({ phoneNumber: req?.body?.phoneNumber })
- 
-            if(userPhone){
-                return res.status(404).json("Số điện thoại đã có người sử dụng");
-            }
-
-            // create usser
-            const newuser = new User({
-                fullName: req?.body?.fullName,
-                phoneNumber: req?.body?.phoneNumber,
-                email: req?.body?.email,
-                password: req?.body?.password,
-                address: req?.body?.address
-            })
-
-            // save to DB
-
-            const user = await newuser.save()
-            return res.status(200).json(user)
+        try {
+        const { fullName, phoneNumber, email, password, address } = req.body;
+    
+        // Kiểm tra nếu số điện thoại hoặc email đã tồn tại
+        const userPhone = await User.findOne({ phoneNumber });
+        const userEmail = await User.findOne({ email });
+    
+        if (userPhone) {
+            return res.status(400).json({ message: "Số điện thoại đã có người sử dụng" });
         }
-        catch(err){
-            return res.status(500).json(err)
+    
+        if (userEmail) {
+            return res.status(400).json({ message: "Email đã có người sử dụng" });
+        }
+    
+        // Tạo người dùng mới
+        const newUser = new User({ fullName, phoneNumber, email, password, address });
+    
+        // Lưu vào cơ sở dữ liệu
+        const user = await newUser.save();
+    
+        return res.status(201).json(user);
+        } catch (err) {
+        if (err.name === 'ValidationError') {
+            return res.status(400).json({ message: err.message, errors: err.errors });
+        }
+        return res.status(500).json({ message: "Có lỗi xảy ra, vui lòng thử lại sau.", error: err.message });
         }
     },
     //GENERATE ACCESS TOKEN

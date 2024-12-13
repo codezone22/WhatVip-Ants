@@ -134,66 +134,6 @@ function ProductDetail() {
         setPopupProductCart(true)
         setCloseTimer()
     }
-    const product1 = {
-        productName: 'Áo khoác thể thao Pro Active',
-        productType: 'Áo khoác',
-        colors: [
-            {
-                colorName: 'Xám',
-                images: [
-                    "https://media.coolmate.me/cdn-cgi/image/quality=100/uploads/October2023/QD001.20_38.jpg",
-                    "https://media.coolmate.me/cdn-cgi/image/quality=100/uploads/October2023/QD001.24_53.jpg",
-                    "https://media.coolmate.me/cdn-cgi/image/quality=100/uploads/October2023/QD001.21.jpg",
-                ],
-                sizes: [
-                    {
-                        name: 'S',
-                        quantity: 10,
-                    },
-                    {
-                        name: 'L',
-                        quantity: 102,
-                    },
-                    {
-                        name: 'M',
-                        quantity: 90,
-                    }
-                ]
-            },
-            {
-                colorName: 'Xanh Navy',
-                images: [
-                    "https://media.coolmate.me/cdn-cgi/image/quality=100/uploads/October2023/QD001.9_84.jpg",
-                    "https://media.coolmate.me/cdn-cgi/image/quality=100/uploads/October2023/QD001.12_94.jpg",
-                    "https://media.coolmate.me/cdn-cgi/image/quality=100/uploads/October2023/QD001.10.jpg",
-                    "https://media.coolmate.me/cdn-cgi/image/quality=100/uploads/October2023/AD001.s2.4.jpg"
-                ],
-                sizes: [
-                    {
-                        name: 'M',
-                        quantity: 10,
-                    },
-                    {
-                        name: 'L',
-                        quantity: 102,
-                    },
-                    {
-                        name: 'XL',
-                        quantity: 90,
-                    },
-                    {
-                        name: '2XL',
-                        quantity: 20,
-                    },
-                    {
-                        name: '3XL',
-                        quantity: 40,
-                    }
-                ]
-            }
-        ],
-        quantitySold: 120
-    }
     const [product, setProduct] = useState({})
     const [reviews, setReviews] = useState([])
     const [reviewsOrigin, setReviewsOrigin] = useState([])
@@ -304,8 +244,6 @@ function ProductDetail() {
                 <span className={cx('span2')} > / {product.productType}</span>
             </div>
             <div className={cx('body')}>
-
-
                 <div className={cx('product-image-wrapper')}>
                     <ul className={cx('product-list-image')}>
                         {
@@ -356,13 +294,9 @@ function ProductDetail() {
                                         return <img key={index} src='https://www.coolmate.me/images/star.svg?2a5188496861d26e5547c524320ec875' className={cx('reviews-rating-star')} alt="" />
                                     })
                                 }
-
-
-
                             </div>
 
                         }
-
                         {
                             !Number.isNaN(rate) &&
                             <span>|</span>
@@ -381,7 +315,6 @@ function ProductDetail() {
                                     <span className={cx('price1')}>{formatMoney(product.exportPrice)}</span>
                                 </>
                         }
-
                         {
                             product.discountPerc &&
                             <span className={cx('percent')}>-{product.discountPerc}%</span>
@@ -584,13 +517,15 @@ function ProductDetail() {
                         </div>
 
                     </div>
-                    <div className={cx('separate')}>
-                    </div>
-                    <div className={cx('product-description')}>
-                        <div ref={descriptionElement} style={{ fontWeight: '600', fontSize: '14px', marginBottom: '16px' }}>Đặc điểm nổi bật</div>
-                    </div>
+                    
                 </div>
             </div>
+            <div className={cx('product-description')}>
+                <h1 className={cx('title')}>Đặc điểm nổi bật</h1>
+                <div ref={descriptionElement} className={cx('description')}>
+                </div>
+            </div>
+
             <div className={cx('carsousel-wrapper')}>
                 <h1 >SẢN PHẨM CÙNG LOẠI BẠN CÓ THỂ THÍCH</h1>
                 <Carousel itemClass="carousel" responsive={responsive} arrows={false} renderButtonGroupOutside={true} customButtonGroup={<ButtonGroup />}>
