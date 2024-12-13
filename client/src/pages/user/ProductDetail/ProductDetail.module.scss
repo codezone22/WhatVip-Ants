@@ -59,8 +59,10 @@
 }
 
 .product-image-wrapper {
-    width: 740px;
-    height: 1090px;
+    border: solid 1px black;
+    width: 500px;
+    height: 500px;
+    margin-left: 300px;
     position: relative;
     
 
@@ -332,12 +334,9 @@
     }
 }
 .product-description {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
-    border-radius: 20px;
-    border: 1px solid #000;
-    justify-content: center;
-    align-items: center;
+
 }
 
 .carsousel-wrapper {
@@ -699,216 +698,89 @@
  }
 }
 
- @media (max-width: 767px) {
-    
+@media (max-width: 767px) {
     .wrapper {
         margin: 30px 20px 50px 20px;
-        .header {
-            .span1 {
-                font-size: 14px;
-            }
-        
-            .span2 {
-                font-size: 14px;
-            }
-        }
-        .body {
-            gap: 35px;
-            flex-direction: column;
-        }
+    }
     
-        .product-image-wrapper {
-  
-            width: auto;
-            height: 240px;
-            
-            .product-list-image {
-                display: flex;
-                gap: 6px;
-                li + li {
-                    margin-top: 0;
-                }
-                .div-item-img {
-                   
-               
-                   
-                }
-            }
-           
-            .image-view {
-                
-           
-                height: 240px;
-                object-fit: cover;
-                
-            }
-            .btn-switch {
-                top: 50%;
-                
-                }
-               
-            }
-            
-        }
-    
-        .section-info {
-     
-            .product-name {
-                font-size: 20px;
-            }
+    .header .span1, .header .span2 {
+        font-size: 14px;
+    }
 
-            .price {
-                // style={{ display: 'flex', gap: '16px', marginTop: '8px', alignItems: 'center' }}
-                display: flex;
-                gap: 16px;
-                margin-top: 8px;
-                align-items: center;
-        
-                .price1 {
+    .body {
+        gap: 35px;
+        flex-direction: column;
+    }
 
-                    font-size: 20px;
-                }
-                .price1 {
+    .product-image-wrapper {
+        width: auto;
+        height: 240px;
+    }
 
-                    font-size: 20px;
-                }
-                .price2 {
+    .product-list-image {
+        display: flex;
+        gap: 6px;
+    }
 
-                    font-size: 20px;
-                }
-                .percent {
- 
-                    font-size: 16px;
-                }
-            }
+    .image-view {
+        height: 240px;
+        object-fit: cover;
+    }
 
-        }
-        .img-color-wrapper {
-            
-            
-        }
-        .section-size {
-            
-        }
-        .size-wrapper {
-            
-        }
-        .btn-add-cart {
-            // style={{height: '40px', width: '100%', display: 'flex', alignItems:'center', justifyContent: 'center', backgroundColor: '#000'}}
-            span {
-                font-size: 12px;
-                display: inline-flex;
-                width: 60px;
-            }
-        }
-        
-        .separate {
-            // border-bottom: 1px solid #d9d9d9;
-           
-        }
-    
-        .product-policy {
-            
-    
-            .product-policy-item {
-                
-    
-                .product-policy-icon {
-                   
-                }
-    
-                .product-policy-title {
-                    
-                }
-            }
-        }
-        .product-description {
-            
-        }
-       
-        .carsousel-wrapper {
-            h1 {
-                // style={{ fontSize: '30px', fontWeight: '700', marginBottom: '28px', textAlign: 'center' }}
-                font-size: 24px;
-            }
-            .carouselItem {
-                gap: 200px;
-            }
-    
-            .carouselItem {
-                
-            }
-        
-            .btn-switch2 {
-    
-                .icon {
-                    
-                }
-            
-                
-            }
-    
-        }
-        .review {
-            gap: 25px;
-            flex-direction: column;
-    
-            .reviews-leftside-rating {
-                width: 210px;
-                position: static;
-                .title {
-                    font-size: 14px;
-                }
-                .rate {
-                    font-size: 36px;
-                }
-                .quantity-reviews{
-                    font-size: 12px;
-  
-                }
-            }
-    
-            .reviews-rightside {
-    
-            }
-            .reviews__filter {
-      
-               flex-direction: column;
-               align-items: flex-start;
-               gap: 12px;
-            }
-            .reviews-listing {
-                
-    
-    
-                .product-reviews-listings {
-                   
-                }
-    
-                .reviews-pagination {
-                    
-                }
-                .reviews-pagination__prev {
-                    
-                }
-                .reviews-pagination__next {
-                   
-                }
-            }
-    
-    
-            .reviews__select {
-                width: 200px;
-                .icon {
-                   
-                }
-                select {   
-                    
-                }
-            }
+    .btn-switch {
+        top: 50%;
+    }
+
+    .section-info .product-name {
+        font-size: 20px;
+    }
+
+    .price {
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+        align-items: center;
+    }
+
+    .price1, .price2 {
+        font-size: 20px;
+    }
+
+    .percent {
+        font-size: 16px;
+    }
+
+    .btn-add-cart span {
+        font-size: 12px;
+        display: inline-flex;
+        width: 60px;
+    }
+
+    .product-policy .product-policy-item {
+        width: 100%;
+    }
+
+    .reviews-leftside-rating {
+        min-width: 210px;
+    }
+
+    .reviews-leftside-rating .title {
+        font-size: 14px;
+    }
+
+    .reviews-leftside-rating .rate {
+        font-size: 36px;
+    }
+
+    .reviews-leftside-rating .quantity-reviews {
+        font-size: 12px;
+    }
+
+    .reviews__select {
+        width: 160px;
+    }
 }
- }
-       
+  
        
     
  

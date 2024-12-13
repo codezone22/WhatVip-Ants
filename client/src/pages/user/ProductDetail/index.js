@@ -207,14 +207,19 @@ function ProductDetail() {
             console.log(error.message)
         }
     }
-    const getProductById = async () => {
-        try {
-            const res = await axios.get(`${baseUrl}/api/products/getProductById/${id}`);
-            setProduct(res.data.data || {})
-        } catch (error) {
-            console.log(error.message)
-        }
+    const [isDiscontinued, setIsDiscontinued] = useState(false); // Thêm trạng thái để theo dõi trạng thái ngừng kinh doanh
+
+const getProductById = async () => {
+    try {
+        const res = await axios.get(`${baseUrl}/api/products/getProductById/${id}`);
+        const fetchedProduct = res.data.data || {};
+        setProduct(fetchedProduct);
+        setIsDiscontinued(fetchedProduct.status === "Ngừng kinh doanh"); // Kiểm tra trạng thái sản phẩm
+    } catch (error) {
+        console.log(error.message);
     }
+};
+    
     const getReviewsByProductId = async () => {
         try {
             const res = await axios.get(`${baseUrl}/api/reviews/getReviewsByProductId/${id}`);
@@ -290,220 +295,243 @@ function ProductDetail() {
         <div className={cx('wrapper')}>
         <ToastContainer />
 
-            <div className={cx(popupProductCart ? 'bayra' : 'bayvao')} style={{position: 'fixed', zIndex: 1000, top: '16px', right: '16px', borderRadius: '16px', width: '350px', maxHeight: '350px', backgroundColor: 'white', padding: '15px', fontSize: '16px', color: 'black', fontWeight: '600' }}>
-                <div>Đã thêm vào giỏ hàng</div>
-                {selected && <ProductItem props={selected}/>}
-                <div>
-                    <div className={cx('account-info__btn')} onClick={() => navigate("/cart")}>
-                        <span className={cx('account-info__btn-text')}>Xem giỏ hàng</span>
-                    </div>
+        <div
+            className={cx(popupProductCart ? 'bayra' : 'bayvao')}
+            style={{
+                position: 'fixed',
+                zIndex: 1000,
+                top: '16px',
+                right: '16px',
+                borderRadius: '16px',
+                width: '350px',
+                maxHeight: '350px',
+                backgroundColor: 'white',
+                padding: '15px',
+                fontSize: '16px',
+                color: 'black',
+                fontWeight: '600',
+            }}
+        >
+            <div>Đã thêm vào giỏ hàng</div>
+            {selected && <ProductItem props={selected} />}
+            <div>
+                <div
+                    className={cx('account-info__btn')}
+                    onClick={() => navigate('/cart')}
+                >
+                    <span className={cx('account-info__btn-text')}>Xem giỏ hàng</span>
                 </div>
-            </div>  
-            <div className={cx('header')}>
-                <span className={cx('span1')} >Trang chủ</span>
-                <span className={cx('span2')} > / {product.productType}</span>
             </div>
-            <div className={cx('body')}>
+        </div>
 
+        <div className={cx('header')}>
+            <span className={cx('span1')}>Trang chủ</span>
+            <span className={cx('span2')}> / {product.productType}</span>
+        </div>
 
-                <div className={cx('product-image-wrapper')}>
-                    <ul className={cx('product-list-image')}>
-                        {
-                            product.colors && product.colors[indexColorActive]?.images.map((item, index) => {
-                                return (
-                                    <li key={index}>
-                                        <div onClick={() => setIndexImageActive(index)} className={cx('div-item-img', {
-                                            active: indexImageActive === index
-                                        })}>
-                                            <img src={item} alt="" />
-                                        </div>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
+        <div className={cx('body')}>
+            <div className={cx('product-image-wrapper')}>
+                <ul className={cx('product-list-image')}>
+                    {product.colors &&
+                        product.colors[indexColorActive]?.images.map((item, index) => (
+                            <li key={index}>
+                                <div
+                                    onClick={() => setIndexImageActive(index)}
+                                    className={cx('div-item-img', {
+                                        active: indexImageActive === index,
+                                    })}
+                                >
+                                    <img src={item} alt="" />
+                                </div>
+                            </li>
+                        ))}
+                </ul>
 
-                    {
-                        product.colors && product.colors[indexColorActive]?.images.map((item, index) => {
-                            return (
-                                <img alt="" className={cx('image-view', { active: indexImageActive === index })} src={item} key={index} />
-                            )
-                        })
-                    }
-                    <div onClick={handleClickPreviousImage} className={cx('btn-switch', 'left')}>
-                        <FaAngleLeft />
-                    </div>
-                    <div onClick={handleClickNextImage} className={cx('btn-switch', 'right')}>
-                        <FaAngleRight />
-                    </div>
+                {product.colors &&
+                    product.colors[indexColorActive]?.images.map((item, index) => (
+                        <img
+                            alt=""
+                            className={cx('image-view', { active: indexImageActive === index })}
+                            src={item}
+                            key={index}
+                        />
+                    ))}
+                <div onClick={handleClickPreviousImage} className={cx('btn-switch', 'left')}>
+                    <FaAngleLeft />
+                </div>
+                <div onClick={handleClickNextImage} className={cx('btn-switch', 'right')}>
+                    <FaAngleRight />
+                </div>
+            </div>
 
+            <div className={cx('section-info')}>
+                <h2 className={cx('product-name')}>{product.productName}</h2>
+                <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
+                    {!Number.isNaN(rate) && (
+                        <div className={cx('reviews-rating')}>
+                            {[...Array(Math.round(rate) || 0)].map((item, index) => (
+                                <img
+                                    key={index}
+                                    src="https://www.coolmate.me/images/star.svg?2a5188496861d26e5547c524320ec875"
+                                    className={cx('reviews-rating-star')}
+                                    alt=""
+                                />
+                            ))}
+                        </div>
+                    )}
+                    {!Number.isNaN(rate) && <span>|</span>}
+                    <div style={{ fontSize: '12px', fontWeight: '500' }}>Đã bán: {product.quantitySold}</div>
                 </div>
 
+                <div className={cx('price')}>
+                    {product.discountPerc ? (
+                        <>
+                            <span className={cx('price1')}>
+                                {formatMoney(product.exportPrice * (1 - product.discountPerc / 100))}
+                            </span>
+                            <span className={cx('price2')}>{formatMoney(product.exportPrice)}</span>
+                        </>
+                    ) : (
+                        <span className={cx('price1')}>{formatMoney(product.exportPrice)}</span>
+                    )}
 
+                    {product.discountPerc && <span className={cx('percent')}>-{product.discountPerc}%</span>}
+                </div>
 
-                <div className={cx('section-info')}>
-                    <h2 className={cx('product-name')}>
-                        {product.productName}
-                    </h2>
-                    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                        {
+                {/* Trạng thái ngừng kinh doanh */}
+                {isDiscontinued && (
+                    <div className={cx('discontinued-overlay')}>Sản phẩm đã ngừng kinh doanh</div>
+                )}
+                
 
-                            !Number.isNaN(rate) &&
-                            <div className={cx('reviews-rating')}>
-
-                                {
-                                    [...Array(Math.round(rate) || 0)].map((item, index) => {
-                                        return <img key={index} src='https://www.coolmate.me/images/star.svg?2a5188496861d26e5547c524320ec875' className={cx('reviews-rating-star')} alt="" />
-                                    })
-                                }
-
-
-
+                <div style={{ marginTop: '8px' }}>
+                    <div>
+                        <span style={{ fontSize: '14px', fontWeight: '500' }}>Màu sắc: </span>
+                        <span style={{ fontWeight: '700', fontSize: '14px', marginLeft: '6px' }}>
+                            {product.colors && product.colors[indexColorActive]?.colorName}
+                        </span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '8px' }}>
+                        {product.colors?.map((item, index) => (
+                            <div
+                                key={index}
+                                className={cx('img-color-wrapper', { active: index === indexColorActive })}
+                            >
+                                <img
+                                    onClick={() => {
+                                        setIndexColorActive(index);
+                                        setIndexSizeActive(0);
+                                        setIndexImageActive(0);
+                                    }}
+                                    alt=""
+                                    src={item.images[0]}
+                                    className={cx('img-color')}
+                                />
                             </div>
-
-                        }
-
-                        {
-                            !Number.isNaN(rate) &&
-                            <span>|</span>
-                        }
-                        <div style={{ fontSize: '12px', fontWeight: '500' }}>Đã bán: {product.quantitySold}</div>
+                        ))}
                     </div>
-                    <div className={cx('price')}>
-                        {
-                            product.discountPerc ?
-                                <>
-                                    <span className={cx('price1')}>{formatMoney(product.exportPrice * (1 - product.discountPerc / 100))}</span>
-                                    <span className={cx('price2')}>{formatMoney(product.exportPrice)}</span>
-                                </>
-                                :
-                                <>
-                                    <span className={cx('price1')}>{formatMoney(product.exportPrice)}</span>
-                                </>
-                        }
+                </div>
 
-                        {
-                            product.discountPerc &&
-                            <span className={cx('percent')}>-{product.discountPerc}%</span>
-                        }
+                <div style={{ marginTop: '8px' }} className={cx('section-size', { active: enableNotiSize })}>
+                    <div>
+                        <span style={{ fontSize: '14px', fontWeight: '500' }}>Kích thước: </span>
                     </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '8px' }}>
+                        {product.colors &&
+                            product.colors[indexColorActive]?.sizes.map((item, index) => (
+                                <div
+                                    onClick={() => {
+                                        setIndexSizeActive(index);
+                                        setEnableNotiSize(false);
+                                        setEnableNotiSize2(false);
+                                        setOutOfStock(false);
+                                    }}
+                                    className={cx('size-wrapper', { active: index === indexSizeActive })}
+                                >
+                                    {item.sizeName}
+                                </div>
+                            ))}
+                    </div>
+                </div>
+
+                {enableNotiSize && enableNotiSize2 && (
+                    <p style={{ marginTop: '12px', fontSize: '14px', color: 'red' }}>Vui lòng chọn kích thước</p>
+                )}
+
+                {indexSizeActive !== -1 && (
                     <div style={{ marginTop: '8px' }}>
                         <div>
-                            <span style={{ fontSize: '14px', fontWeight: '500' }}>Màu sắc: </span>
-                            <span style={{ fontWeight: '700', fontSize: '14px', marginLeft: '6px' }}>{product.colors && product.colors[indexColorActive]?.colorName}</span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '8px' }}>
-                            {
-                                product.colors?.map((item, index) => {
-                                    return (
-                                        <div key={index} className={cx('img-color-wrapper', { active: index === indexColorActive })}>
-                                            <img onClick={() => { setIndexColorActive(index); setIndexSizeActive(0); setIndexImageActive(0) }} alt="" src={item.images[0]} className={cx('img-color')} />
-
-                                        </div>
-                                    )
-                                })
-                            }
+                            <span style={{ fontSize: '14px', fontWeight: '500' }}>
+                                Số lượng có sẵn: <strong>{product.colors && product.colors[indexColorActive]?.sizes[indexSizeActive]?.quantity || 0}</strong>
+                            </span>
                         </div>
                     </div>
+                )}
 
-                    <div style={{ marginTop: '8px' }} className={cx('section-size', { active: enableNotiSize })}>
-                        <div>
-                            <span style={{ fontSize: '14px', fontWeight: '500' }}>Kích thước: </span>
-                        </div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '8px' }}>
-                            {
-                                product.colors && product.colors[indexColorActive]?.sizes.map((item, index) => {
-                                    return (
-                                        <div onClick={() => { setIndexSizeActive(index); setEnableNotiSize(false); setEnableNotiSize2(false); setOutOfStock(false) }} className={cx('size-wrapper', { active: index === indexSizeActive })}>
-                                            {item.sizeName}
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    </div>
-                    {
-                        enableNotiSize && enableNotiSize2 &&
-                        <p style={{ marginTop: '12px', fontSize: '14px', color: 'red' }}>Vui lòng chọn kích thước</p>
-                    }
+                {outOfStock && (
+                    <p style={{ marginTop: '12px', fontSize: '14px', color: 'red' }}>Sản phẩm đã hết hàng</p>
+                )}
 
-                    {
-                        indexSizeActive !== -1 &&
-                        <div style={{ marginTop: '8px' }}>
-                            <div>
-                                <span style={{ fontSize: '14px', fontWeight: '500' }}>Số lượng có sẵn: <strong>{product.colors && product.colors[indexColorActive]?.sizes[indexSizeActive]?.quantity || 0}</strong></span>
-                            </div>
-
-                        </div>
-                    }
-                    {
-                        outOfStock &&
-                        <p style={{ marginTop: '12px', fontSize: '14px', color: 'red' }}>Sản phẩm đã hết hàng</p>
-                    }
-
-                    <div style={{ marginTop: '32px', padding: '16px 0', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div style={{ marginTop: '32px', padding: '16px 0', display: 'flex', alignItems: 'center', gap: '16px' }}>
                     <div
                         style={{
-                        display: 'inline-flex',
-                        borderRadius: '30px',
-                        height: '40px',
-                        width: '100px',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        border: '1px solid #000',
+                            display: 'inline-flex',
+                            borderRadius: '30px',
+                            height: '40px',
+                            width: '100px',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            border: '1px solid #000',
                         }}
                     >
                         <span
-                        onClick={() => {
-                            if (quantityAddCart === 1) return;
-                            setQuantityAddCart((prev) => prev - 1);
-                        }}
-                        style={{
-                            userSelect: 'none',
-                            display: 'inline-block',
-                            padding: '0px 16px',
-                            fontSize: '20px',
-                            cursor: 'pointer',
-                            fontWeight: '700',
-                        }}
+                            onClick={() => {
+                                if (quantityAddCart === 1) return;
+                                setQuantityAddCart((prev) => prev - 1);
+                            }}
+                            style={{
+                                userSelect: 'none',
+                                display: 'inline-block',
+                                padding: '0px 16px',
+                                fontSize: '20px',
+                                cursor: 'pointer',
+                                fontWeight: '700',
+                            }}
                         >
-                        -
+                            -
                         </span>
                         <span style={{ display: 'inline-block', fontWeight: '600' }}>{quantityAddCart}</span>
                         <span
-                        onClick={hanleClickPlusQuantity}
-                        style={{
-                            userSelect: 'none',
-                            display: 'inline-block',
-                            padding: '0px 16px',
-                            fontSize: '20px',
-                            cursor: 'pointer',
-                            fontWeight: 'bold',
-                        }}
+                            onClick={hanleClickPlusQuantity}
+                            style={{
+                                userSelect: 'none',
+                                display: 'inline-block',
+                                padding: '0px 16px',
+                                fontSize: '20px',
+                                cursor: 'pointer',
+                                fontWeight: 'bold',
+                            }}
                         >
-                        +
+                            +
                         </span>
                     </div>
-                    <div
-                        onClick={product.status === 'Ngừng kinh doanh' ? null : handleClickBtnAddCart}
-                        className={cx('btn-add-cart')}
-                        style={{
-                        cursor: product.status === 'Ngừng kinh doanh' ? 'not-allowed' : 'pointer',
-                        }}
-                    >
-                        {product.status === 'Ngừng kinh doanh' ? (
-                        <span>Sản phẩm ngừng kinh doanh</span>
-                        ) : indexSizeActive === -1 ? (
-                        <span>Chọn kích thước</span>
-                        ) : (
-                        <>
-                            <BsCartCheck style={{ marginRight: '8px', fontSize: '20px' }} />
-                            <span>Thêm vào giỏ hàng</span>
-                        </>
-                        )}
-                    </div>
-                    </div>
-
+                    <div 
+    onClick={isDiscontinued ? null : handleClickBtnAddCart} // Không gọi hàm nếu sản phẩm ngừng kinh doanh
+    className={cx('btn-add-cart')}
+    style={{ cursor: isDiscontinued ? 'not-allowed' : 'pointer' }} // Thêm style để thay đổi con trỏ khi vô hiệu hóa
+>
+    {isDiscontinued ? (
+        <span style={{ color: 'red' }}>Sản phẩm ngừng kinh doanh</span> // Hiển thị thông báo khi ngừng kinh doanh
+    ) : indexSizeActive === -1 ? (
+        <span>Chọn kích thước</span>
+    ) : (
+        <>
+            <BsCartCheck style={{ marginRight: '8px', fontSize: '20px' }} />
+            <span>Thêm vào giỏ hàng</span>
+        </>
+    )}
+</div>
+                </div>
 
                     <div className={cx('separate')}>
                     </div>
@@ -662,7 +690,7 @@ function ProductDetail() {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
 
